@@ -1,0 +1,22 @@
+.start-time{
+    font-size: 18px;
+    font-weight: 500;
+}
+.end-time{
+    font-size: 18px;
+    font-weight: 500;
+}
+.modal-user-name{
+    font-size: 18px;
+    font-weight: 700;
+}
+@media only screen and (max-width: 600px) {
+   .react-calendar__viewContainer{
+        width: 230px;
+    }
+    .react-calendar__navigation{
+        width: 230px;
+    }
+  }
+  
+
