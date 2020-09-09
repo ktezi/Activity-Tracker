@@ -1,8 +1,8 @@
 {
-  "homepage": "http://ktezi.github.io/Activity-Tracker",
   "name": "activity-tracker",
   "version": "0.1.0",
   "private": true,
+  "homepage":"http://ktezi.github.io/Activity-Tracker",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -17,12 +17,12 @@
     "reactstrap": "^8.5.1"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master_2 -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -9,7 +9,6 @@ function UserCard(props) {
         <div className='user-card'onClick={() => setModalShow(true)}>
         {props.user.real_name}
         </div>
-
       {showModal ?
       <CardModal
         show={showModal}

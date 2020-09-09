@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import Calendar from "react-calendar";
-import './CardModal.css'
+import "./CardModal.css";
 import "react-calendar/dist/Calendar.css";
 function CardModal(props) {
-  const [date, setDate] = useState(new Date());
+  const [date] = useState(new Date());
   const [loadCalender, setLoadCalender] = useState(false);
   const [renderArray, updateRenderArray] = useState([]);
 
@@ -73,22 +73,31 @@ function CardModal(props) {
     return renderArray.map((a, index) => {
       return (
         <div key={index}>
-          <div><span className="start-time">Start Time </span>: {a.start_time}</div>
-          <div><span className="end-time">End Time     </span>: {a.end_time}</div>
+          <div>
+            <span className="start-time">Start Time </span>: {a.start_time}
+          </div>
+          <div>
+            <span className="end-time">End Time </span>: {a.end_time}
+          </div>
           <br></br>
         </div>
       );
     });
   };
 
-  const modalText = ()=>{
-    const text = loadCalender ?   'Hide Calender' : 'Select Range'
+  const modalText = () => {
+    const text = loadCalender ? "Hide Calender" : "Select Range";
     return (
-      <Button variant="secondary" size="sm" active onClick={()=> handleSelect(!loadCalender)}>
-            {text}
-          </Button>
-    )
-  }
+      <Button
+        variant="secondary"
+        size="sm"
+        active
+        onClick={() => handleSelect(!loadCalender)}
+      >
+        {text}
+      </Button>
+    );
+  };
 
   return (
     <Modal
@@ -100,11 +109,16 @@ function CardModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <div className="modal-user-name" >{props.user.real_name}</div>
+          <div className="modal-user-name">{props.user.real_name}</div>
           {modalText()}
         </Modal.Title>
         {loadCalender ? (
-          <Calendar id="modal-calendar" onChange={onChange} selectRange={true} closeButton={true} />
+          <Calendar
+            id="modal-calendar"
+            onChange={onChange}
+            selectRange={true}
+            closeButton={true}
+          />
         ) : (
           ""
         )}
@@ -113,9 +127,6 @@ function CardModal(props) {
         <h4>Today's Activity</h4>
         <div>{dataObj()}</div>
       </Modal.Body>
-      {/* <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer> */}
     </Modal>
   );
 }
