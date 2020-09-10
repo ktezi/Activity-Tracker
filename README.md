@@ -1,11 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
+This is an application to track the activity of the particular user from user list for a selected range of days through calendar and it will displays the activity log for the day as well.
 
+## Fake API Deployment using Heroku
+Setup the Heroku cli using cli commands and created a app in which I have hosted db.json file.
+If you want to add/update/delete data in API just open db.json file and add/update/delete the data and just do the following commands -
+git add .
+git commit -m "message"
+git push heroku master
+So all the changes will reflect on "https://fake-rst-api.herokuapp.com/data" this URL. 
+
+## React App Deployment on Github pages
+I have deployed react-app on Github pages. 
+live  : https://ktezi.github.io/Activity-Tracker/
+
+
+## Available Scripts
 In the project directory, you can run:
 
 ### `npm start`
-
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
