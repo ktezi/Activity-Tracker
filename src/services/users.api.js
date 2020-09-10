@@ -1,8 +1,8 @@
 
 const users = {
-    fetchUsers: async() => {
+    fetchUsers: async () => {
         const res = await fetch('https://fake-rst-api.herokuapp.com/data');
-        let data = await res.json();
+        let data = res.json();
         return data;
     },
 };

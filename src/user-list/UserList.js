@@ -7,29 +7,32 @@ import { Spinner } from "react-bootstrap";
 
 function UserList() {
   const [userDetails, setUserDetails] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const result = users.fetchUsers();
     result.then((result) => {
       setUserDetails(result);
-      setLoading(true);
-    });
-  }, []);
+    }).catch(err => {
+      console.error(err)
+    }).finally(()=>{
+      setLoading(false);
+    })
+  }, []);   //this will run only once
+
+
 
   return (
     <div className="user-list-container">
       <div className="user-list-title">
         <h3>List of Users</h3>
       </div>
-      {loading ? (
-        Object.keys(userDetails).map((key) => {
-          return Object.keys(userDetails[key]).map((index) => {
-            return <UserCard key={index} user={userDetails[key][index]} />;
-          });
+      {!loading ? (
+       userDetails.members && userDetails.members.map((user, index) => {
+          return <UserCard key={index} user={user} />;
         })
       ) : (
-        <Spinner animation="grow" />
-      )}
+          <Spinner animation="grow" />
+        )}
     </div>
   );
 }
