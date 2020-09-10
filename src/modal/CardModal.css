@@ -10,12 +10,26 @@
     font-size: 18px;
     font-weight: 700;
 }
+th {
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+td {
+    padding-left: 3px;
+}
 @media only screen and (max-width: 600px) {
    .react-calendar__viewContainer{
         width: 230px;
     }
     .react-calendar__navigation{
         width: 230px;
+    }
+    th {
+        padding-left: 5px;
+        padding-bottom: 5px;
+    }
+    td {
+        padding-left: 3px;
     }
   }
   

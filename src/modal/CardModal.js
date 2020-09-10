@@ -54,7 +54,7 @@ function CardModal(props) {
     }
     setStartDate(inputStartDate)
     setEndData(inputEndDate)
-    setDataArray(inputStartDate, inputEndDate);     //this method will update the data for given range 
+    setDataArray(new Date(inputStartDate), new Date(inputEndDate));    //this method will update the data for given range 
     setLoadCalender(false);                    //hiding calendar after selection
   };
 
@@ -63,19 +63,14 @@ function CardModal(props) {
   const setDataArray = (inputStartDate, inputEndDate) => {
     const { activity_periods } = props.user;
     const selectedPeriod = activity_periods.filter((a) => {
-      let p_strDat = String(a.start_time);
-      let p_endDat = String(a.end_time);
+      let p_strDat = a.start_time;
+      let p_endDat = a.end_time;
       let p_activityStartDate, p_activityEndDate;
       const trimedStrDate = p_strDat.split(" ");
       const trimedEndDate = p_endDat.split(" ");
-      p_activityStartDate =
-        trimedStrDate[0] + " " + trimedStrDate[1] + " " + trimedStrDate[2];
-      p_activityEndDate =
-        trimedEndDate[0] + " " + trimedEndDate[1] + " " + trimedEndDate[2];
-      if (
-        inputStartDate <= p_activityStartDate &&
-        p_activityEndDate <= inputEndDate
-      ) {
+      p_activityStartDate = new Date(trimedStrDate[0] + " " + trimedStrDate[1] + " " + trimedStrDate[2]);
+      p_activityEndDate = new Date(trimedEndDate[0] + " " + trimedEndDate[1] + " " + trimedEndDate[2]);
+      if ( p_activityStartDate >= inputStartDate && p_activityStartDate <= inputEndDate && p_activityEndDate >= inputStartDate && p_activityEndDate <= inputEndDate) {
         return true;
       } else {
         return false;
